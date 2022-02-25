@@ -207,8 +207,7 @@ export default function App() {
 					<button className="primary">Install Metamask 🦊</button>
 				</a>
 				<p style={{ color: 'var(--fg-dimmest)', textAlign: 'center' }}>
-					MetaMask is a Chrome Extension that lets you approve
-					Ethereum transactions
+					MetaMask is a Chrome Extension that lets you approve transactions
 				</p>
 
 				<p
@@ -278,7 +277,7 @@ export default function App() {
 						className="main-title"
 						style={{ paddingBottom: 'var(--space-8)' }}
 					>
-						Ethereum
+						XDC Network
 					</h1>
 					{walletAddress && <ChainInfo chainId={chainId} />}
 				</VStack>
@@ -419,9 +418,9 @@ function FaucetLink({ chainId }) {
 		<a
 			target="_blank"
 			rel="noopener"
-			href="https://docs.chain.link/docs/link-token-contracts/#mainnet"
+			href="https://faucet.apothem.network/"
 		>
-			Get Ether for testing
+			Get XDC for testing
 		</a>
 	) : null
 }
@@ -435,7 +434,7 @@ function Balance({ walletAddress, chainId }) {
 
 	return (
 		<span style={{ marginRight: 'var(--space-8)', whiteSpace: 'nowrap' }}>
-			{ethers.utils.formatEther(balance).slice(0, 6)} ETH
+			{ethers.utils.formatEther(balance).slice(0, 6)} XDC
 		</span>
 	)
 }
@@ -466,7 +465,7 @@ function ChainInfo({ chainId }) {
 						text={
 							chainId === 1
 								? 'This is the primary network for Ethereum and uses real ETH for deployment'
-								: 'You are connected to a test network. Test networks let you deploy your contracts with fake ETH'
+								: 'You are connected to a test network. Test networks let you deploy your contracts with fake cryptocurrency'
 						}
 					/>
 				</span>
@@ -634,11 +633,11 @@ const generalStateMutability = (stateMutability) => {
 // Simplify these definitions
 const mutabilityStateDescriptions = {
 	payable:
-		'A payable function writes to the contract and requires you to send ETH to the recipient',
+		'A payable function writes to the contract and requires you to send cryptocurrency to the recipient',
 	view: 'A view function accesses state variables in your contract',
 	pure: 'A pure function accesses non-state data in your contract',
 	nonpayable:
-		'A nonpayable function writes to the contract and does not require you to send ETH to the recipient',
+		'A nonpayable function writes to the contract and does not require you to send cryptocurrency to the recipient',
 }
 
 function ContractUI({
@@ -966,7 +965,7 @@ function FunctionUI({
 						>
 							Requires gas
 						</span>
-						<HelpIndicator text="Gas is ETH you pay to execute a transaction" />
+						<HelpIndicator text="Gas is cryptocurrency you pay to execute a transaction" />
 					</HStack>
 				) : null}
 				{!chainIsActive ? (
